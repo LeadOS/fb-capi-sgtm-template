@@ -15,5 +15,5 @@
 homepage: "https://terrific-digital.com"
 documentation: "https://terrific-digital.com"
 versions:
-  - sha: 5f02a788b90ae804f86b04aa24af8937e567874a
+  - sha: f9af4bb9151125ebe705c310cb967caa77ee101e
     changeNotes: Initial Version
