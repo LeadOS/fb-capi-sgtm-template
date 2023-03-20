@@ -15,5 +15,5 @@
 homepage: "https://terrific-digital.com"
 documentation: "https://terrific-digital.com"
 versions:
-  - sha: f9af4bb9151125ebe705c310cb967caa77ee101e
-    changeNotes: Initial Version
+  - sha: 05f7a7a9fb721b6c03525de6d88879f4939d418a
+    changeNotes: Added external_id mapping from GA4 user_id
