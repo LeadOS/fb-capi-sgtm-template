@@ -13,7 +13,7 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "Terrific Digital Facebook CAPI v2.0",
+  "displayName": "Terrific Digital Facebook CAPI v2.1",
   "categories": [
     "ADVERTISING",
     "ANALYTICS",
@@ -119,6 +119,14 @@ ___TEMPLATE_PARAMETERS___
     "selectItems": [],
     "simpleValueType": true,
     "notSetText": "Choose the _fbc Cookie Source"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "external_id",
+    "checkboxText": "Turn On External ID Mapping",
+    "simpleValueType": true,
+    "displayName": "External ID",
+    "help": "By turning on this feature, \"\u003ci\u003eexternal_id\u003c/i\u003e\" will be sent to Facebook, and will contain the same value as GA4\u0027s standard field \"\u003ci\u003euser_id\u003c/i\u003e\".\n\u003cbr\u003e\u003cbr\u003e\n\u003ca href\u003d\"https://developers.google.com/analytics/devguides/collection/ga4/user-id?hl\u003den\u0026client_type\u003dgtag\" target\u003d\"_new\"\u003eClick here\u003c/a\u003e to read more about GA4\u0027s \u0027user_id\u0027 standard field.\n\u003cbr\u003e\u003ca href\u003d\"https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/external-id/\" target\u003d\"_new\"\u003eClick here\u003c/a\u003e to read more about Facebook\u0027s \u0027\u003ci\u003eexternal_id\u003c/i\u003e\u0027 parameter."
   },
   {
     "type": "CHECKBOX",
@@ -294,8 +302,7 @@ event.action_source = data.action_source || 'website';
 event.user_data = {};
 event.user_data.client_ip_address = eventModel.ip_override;
 event.user_data.client_user_agent = eventModel.user_agent;
-//event.user_data.em = eventModel.user_data.email_address;
-
+if (data.external_id && eventModel.user_id) event.user_data.external_id = eventModel.user_id;
 
 // Fetch _fbp and _fbc cookie values from corresponding tag fields
 if (data.fbp_cookie) event.user_data.fbp = data.fbp_cookie;
